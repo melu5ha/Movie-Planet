@@ -101,6 +101,7 @@ a {
 .movie_list_item {
     margin-right: 5px;
     margin-bottom: 5px;
+    width: 160px;
 }
 
 .movie_list_item:nth-child(9n) {
