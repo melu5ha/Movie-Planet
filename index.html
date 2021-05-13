@@ -42,7 +42,7 @@
                     </select>
                 </li>
                 <li class="years_filter filter_item">
-                    <select class="select_menu" name="years">
+                    <select class="select_menu first_years_menu" name="years" onchange="showYear()">
                         <option value="1990" selected>1990</option>
                         <option value="1991">1991</option>
                         <option value="1992">1992</option>
@@ -77,7 +77,7 @@
                         <option value="2021">2021</option>
                     </select>
                     -
-                    <select class="select_menu" name="years">
+                    <select class="select_menu second_years_menu" name="years">
                         <option value="1990">1990</option>
                         <option value="1991">1991</option>
                         <option value="1992">1992</option>
@@ -223,5 +223,6 @@
             </ul>
         </div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
