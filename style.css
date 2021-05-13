@@ -15,7 +15,8 @@ a {
 }
 
 .main_header {
-    margin: 0 100px 10px;
+    max-width: 1480px;
+    margin: 0 auto 10px;
 }
 
 .header_filter {
@@ -49,6 +50,10 @@ a {
     margin-bottom: 10px;
 }
 
+.search_field {
+    position: relative;
+}
+
 .searching {
     width: 200px;
     height: 25px;
@@ -62,8 +67,8 @@ a {
 
 .icon_search {
     position: absolute;
-    top: 106px;
-    right: 106px;
+    top: 5px;
+    right: 7px;
     opacity: 0.5;
 }
 
@@ -76,7 +81,8 @@ a {
 }
 
 .main_body {
-    margin: 0 100px;
+    margin: 0 auto;
+    max-width: 1480px;
 }
 
 .movie_list {
@@ -90,8 +96,6 @@ a {
 
 .movie_list img {
     display: block;
-    /*padding: 0;*/
-    /*margin: 0;*/
 }
 
 .movie_list_item {
