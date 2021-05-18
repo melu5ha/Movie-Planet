@@ -99,6 +99,7 @@ a {
 }
 
 .movie_list_item {
+    position: relative;
     margin-right: 5px;
     margin-bottom: 5px;
     width: 160px;
@@ -107,3 +108,44 @@ a {
 .movie_list_item:nth-child(9n) {
     margin-right: 0;
 }
+
+.movie_title_background {
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    display: block;
+    background-color: rgba(255,255,255,1);
+    bottom: 0;
+    left: 0;
+}
+
+.movie_title {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    height: 40px;
+    width: 160px;
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+}
+
+.movie_list_item:hover .movie_title_background {
+    background-color: black;
+}
+
+.movie_list_item:hover .movie_title {
+    color: white;
+}
+
+
+
+/*.movie_title_background:hover {*/
+/*    background-color: black;*/
+/*}*/
+
+/*.movie_title_background:hover .movie_title {*/
+/*    color: white;*/
+/*    !*background-color: black;*!*/
+/*}*/
+
