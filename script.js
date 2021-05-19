@@ -1,4 +1,5 @@
-let movieArray = [{
+let movieArray = [
+    {
     'title': 'The Intouchables',
     'year' : 2011,
     'poster' : 'Posters/the_intouchable.jpeg',
@@ -214,7 +215,81 @@ let movieArray = [{
     'poster': 'Posters/the_mechanic.jpeg',
     'country' : ['USA'],
     'genres' : ['Action', 'Thriller']
-}];
+}
+];
+
+let genresArray = ['All genres', 'Action', 'Adventure', 'Comedy', 'Crime', 'Drama', 'Fantasy',
+    'Horror', 'Military', 'Mystery', 'Romance', 'Sport', 'Thriller', 'Western'];
+
+let countriesArray = ['All countries', 'USA', 'India', 'Russia', 'Canada', 'France', 'Britain',
+    'China', 'Germany', 'Australia', 'Belarus'];
+
+let yearsArray = [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+    2018, 2019, 2020, 2021];
+
+let showFilter = function () {
+    let ul = document.createElement('ul');
+    ul.className = 'main_filter';
+
+    showFilterGenres(ul);
+
+    showFilterCountries(ul);
+
+    showFilterYears(ul);
+
+    document.querySelector('.header_filter').prepend(ul);
+}
+
+let showFilterGenres = function (ul) {
+    let li = document.createElement('li');
+    li.className = 'movie_genre_filter';
+    li.className += ' filter_item';
+
+    ul.append(li);
+
+    createOption(li,'movie_genres', 'movie genres', genresArray);
+}
+
+let showFilterCountries = function (ul) {
+    let li = document.createElement('li');
+    li.className = 'countries_filter';
+    li.className += ' filter_item'
+    ul.append(li);
+
+    createOption(li,'movie_country', 'countries', countriesArray);
+}
+
+let showFilterYears = function (ul) {
+    let li = document.createElement('li');
+    li.className = 'years_filter';
+    li.className += ' filter_item';
+    ul.append(li);
+
+    createOption(li, 'first_years_menu', 'years', yearsArray);
+
+    li.innerHTML += '-';
+
+    createOption(li, 'second_years_menu', 'years', yearsArray);
+}
+
+let createOption = function (li, selectClass, selectName, selectArray) {
+    let select = document.createElement('select');
+    select.className = 'select_menu ';
+    select.className += selectClass;
+    select.name = selectName;
+    select.setAttribute('onchange', 'showMovieList()');
+    li.append(select);
+
+    for (let i = 0; i < selectArray.length; i++) {
+        let option = document.createElement('option');
+        if (selectArray[i] == 2021) option.selected = true;
+        option.value = selectArray[i];
+        option.innerHTML = selectArray[i];
+        select.append(option);
+    }
+}
+
+showFilter();
 
 let firstYear = document.querySelector('.first_years_menu');
 let secondYear = document.querySelector('.second_years_menu');
@@ -275,16 +350,18 @@ let showYear = function () {
         firstYear.value = firstYearVal;
         secondYear.value = secondYearVal;
 
-        return;
+        return false;
     }
 
     firstYearVal = firstYear.value;
     secondYearVal = secondYear.value;
 
-    showMovieList();
+    return true;
 }
 
 let showMovieList = function () {
+    if(!showYear()) return;
+
     let movieList = document.querySelectorAll('.movie_list_item');
 
     for(let i = 0; i < movieList.length; i++) {
@@ -360,8 +437,3 @@ let checkGenre = function (movie, genre) {
     if (count > 0) return true;
     else return false;
 }
-
-
-
-
-
