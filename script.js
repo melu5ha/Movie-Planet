@@ -231,38 +231,30 @@ let showFilter = function () {
     let ul = document.createElement('ul');
     ul.className = 'main_filter';
 
-    showFilterGenres(ul);
+    showFilterItems(ul, 'movie_genre_filter', 'movie_genres', 'movie genres', genresArray);
 
-    showFilterCountries(ul);
+    showFilterItems(ul, 'countries_filter', 'movie_country', 'countries', countriesArray);
 
     showFilterYears(ul);
 
     document.querySelector('.header_filter').prepend(ul);
 }
 
-let showFilterGenres = function (ul) {
+let showFilterItems = function (ul, className, selectClass, selectName, itemsArray) {
     let li = document.createElement('li');
-    li.className = 'movie_genre_filter';
+    li.className = className;
     li.className += ' filter_item';
 
     ul.append(li);
 
-    createOption(li,'movie_genres', 'movie genres', genresArray);
-}
-
-let showFilterCountries = function (ul) {
-    let li = document.createElement('li');
-    li.className = 'countries_filter';
-    li.className += ' filter_item'
-    ul.append(li);
-
-    createOption(li,'movie_country', 'countries', countriesArray);
+    createOption(li,selectClass, selectName, itemsArray);
 }
 
 let showFilterYears = function (ul) {
     let li = document.createElement('li');
     li.className = 'years_filter';
     li.className += ' filter_item';
+
     ul.append(li);
 
     createOption(li, 'first_years_menu', 'years', yearsArray);
@@ -394,31 +386,19 @@ let showCountries = function (array, country) {
     let newMovieArray = [];
 
     for (let i = 0; i < array.length; i++) {
-        if (checkCountry(array[i], country) == true) {
+        if (checkFilterItem(array[i].country, country) == true) {
             newMovieArray.push(array[i]);
         }
     }
 
     return(newMovieArray);
-}
-
-let checkCountry = function (movie, country) {
-    let movieCountries = movie.genres;
-    let count = 0;
-
-    for (let i = 0; i < movie.country.length; i++) {
-        if (movie.country[i] == country) count++;
-    }
-
-    if (count > 0) return true;
-    else return false;
 }
 
 let showGenres = function (array, genre) {
     let newMovieArray = [];
 
     for (let i = 0; i < array.length; i++) {
-        if (checkGenre(array[i], genre) == true) {
+        if (checkFilterItem(array[i].genres, genre) == true) {
             newMovieArray.push(array[i]);
         }
     }
@@ -426,12 +406,11 @@ let showGenres = function (array, genre) {
     return(newMovieArray);
 }
 
-let checkGenre = function (movie, genre) {
-    let movieGenres = movie.genres;
+let checkFilterItem = function (movieItem, filterItem) {
     let count = 0;
 
-    for (let i = 0; i < movie.genres.length; i++) {
-        if (movie.genres[i] == genre) count++;
+    for (let i = 0; i < movieItem.length; i++) {
+        if (movieItem[i] == filterItem) count++;
     }
 
     if (count > 0) return true;
