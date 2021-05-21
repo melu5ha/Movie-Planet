@@ -136,3 +136,158 @@ a {
 .movie_list_item:hover .movie_title {
     color: white;
 }
+
+.movie_shadow:before {
+    content: '';
+    background: black;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.movie {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 100px auto;
+    font: inherit;
+    font-weight: normal;
+    line-height: 22px;
+    width: 720px;
+    height: 780px;
+    background-color: #252526;
+    border-radius: 5px;
+}
+
+.movie_wallpaper {
+    border-radius: 5px 5px 0 0;
+}
+
+.main_movie_title {
+    position: relative;
+    margin: 20px 20px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.main_movie_title_year {
+    position: absolute;
+    color: gray;
+    font-size: 14px;
+    right: 0;
+    bottom: 0;
+}
+
+.movie_description {
+    display: block;
+    padding: 0 20px;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.movie_information {
+    margin: 10px 20px 0;
+}
+
+.title_movie_information {
+    font-size: 18px;
+    font-weight: 700;
+    color: gray;
+}
+
+.movie_information_item {
+    font-size: 17px;
+}
+
+.movie_information_item:after {
+    content: ", ";
+}
+
+.movie_information_item:last-child:after {
+    content: "";
+}
+
+.movie_close {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    background-color: black;
+    border-radius: 4px;
+    border: 0;
+    top: 6px;
+    right: 6px;
+    z-index: 10;
+}
+
+.movie_button_close {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    width: 21px;
+    height: 21px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.movie_button_close:before,
+.movie_button_close:after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 21px;
+    height: 3px;
+    border-radius: 1px;
+    background-color: white;
+    z-index: 20;
+}
+
+.movie_button_close:before {
+    transform: rotate(45deg);
+}
+
+.movie_button_close:after {
+    transform: rotate(-45deg);
+}
+
+.movie_show {
+    display: block;
+    animation-name: appearance;
+    animation-duration: 0.4s;
+}
+
+.movie_close_animation {
+    display: block;
+    animation-name: close;
+    animation-duration: 0.4s;
+}
+
+@keyframes appearance {
+    0% {
+        transform: translateY(-500px);
+    }
+    60% {
+        transform: translateY(40px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes close {
+    0% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(40px);
+    }
+    100% {
+        transform: translateY(-1500px);
+    }
+}
