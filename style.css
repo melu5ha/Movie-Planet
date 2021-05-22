@@ -1,7 +1,6 @@
 a {
     text-decoration: none;
     color: white;
-    pointer-events: none;
     cursor: default;
 }
 
@@ -137,15 +136,3 @@ a {
 .movie_list_item:hover .movie_title {
     color: white;
 }
-
-
-
-/*.movie_title_background:hover {*/
-/*    background-color: black;*/
-/*}*/
-
-/*.movie_title_background:hover .movie_title {*/
-/*    color: white;*/
-/*    !*background-color: black;*!*/
-/*}*/
-
